@@ -14,12 +14,34 @@ Park.prototype.removeDino = function (dinosaur) {
 };
 
 Park.prototype.mostAttractiveDino = function () {
-  let mostAttractiveDino;
+  let mostAttractiveDino = this.dinosaurs[0];
+
   for (const dino of this.dinosaurs){
-    if (dino.guestsAttractedPerDay > mostAttractiveDino.guestsAttractedPerDay)
-      mostAttractiveDino = dino;
+    if (dino.guestsAttractedPerDay > mostAttractiveDino.guestsAttractedPerDay){
+        mostAttractiveDino = dino;
+    }
   }
   return mostAttractiveDino;
+};
+
+Park.prototype.findBySpecies = function (species_name) {
+  const dinoBySpecies = [];
+  for (const dino of this.dinosaurs){
+    if (dino.species === species_name){
+      dinoBySpecies.push(dino);
+    }
+  }
+  return dinoBySpecies;
+};
+
+Park.prototype.removeBySpecies = function (species_name) {
+  let newDinosaurs = [];
+  for (const dino of this.dinosaurs){
+    if (dino.species !== species_name){
+      newDinosaurs.push(dino);
+    }
+  }
+  this.dinosaurs = newDinosaurs;
 };
 
 module.exports = Park;
