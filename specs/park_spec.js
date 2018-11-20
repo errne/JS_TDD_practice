@@ -95,4 +95,13 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, 866875);
   });
 
+  it('should be able to return object with diet count', function () {
+    park.addDino(dino1);
+    park.addDino(dino2);
+    park.addDino(dino3);
+    park.addDino(dino4);
+    const actual = park.dietCount();
+    assert.deepStrictEqual(actual, {'carnivore': 1, 'herbivore': 2, 'omnivore': 1})
+  })
+
 });
