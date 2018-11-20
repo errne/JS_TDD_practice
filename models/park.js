@@ -44,4 +44,22 @@ Park.prototype.removeBySpecies = function (species_name) {
   this.dinosaurs = newDinosaurs;
 };
 
+Park.prototype.totalVisitorsPerDay = function () {
+  let totalDailyVisitors = 0;
+  for (const dino of this.dinosaurs){
+    totalDailyVisitors += dino.guestsAttractedPerDay;
+  }
+  return totalDailyVisitors
+};
+
+Park.prototype.totalYearlyVisitors = function () {
+  const dailyVisitors = this.totalVisitorsPerDay();
+  return dailyVisitors * 365;
+};
+
+Park.prototype.yearlyTicketSales = function () {
+  const totalYearlyVisits = this.totalYearlyVisitors();
+  return totalYearlyVisits * this.ticketPrice;
+};
+
 module.exports = Park;

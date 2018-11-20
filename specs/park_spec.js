@@ -70,4 +70,29 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, [dino1, dino2])
   });
 
+  it('should be able to calculate the total number of visitors per day', function () {
+    park.addDino(dino1);
+    park.addDino(dino2);
+    park.addDino(dino3);
+    park.addDino(dino4);
+    const actual = park.totalVisitorsPerDay();
+    assert.deepStrictEqual(actual, 236);
+  });
+
+  it('should be able to calculate the total number of visitors per year', function () {
+    park.addDino(dino1);
+    park.addDino(dino2);
+    park.addDino(dino3);
+    park.addDino(dino4);
+    const actual = park.totalYearlyVisitors();
+    assert.deepStrictEqual(actual, 86140);
+  });
+
+  it('should be able to calculate the total revenue from ticket sales for one year', function () {
+    park.addDino(dino1);
+    park.addDino(dino2);
+    const actual = park.yearlyTicketSales();
+    assert.deepStrictEqual(actual, 866875);
+  });
+
 });
